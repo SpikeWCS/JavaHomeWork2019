@@ -1,0 +1,20 @@
+package com.shan.lab2;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StringHandle {
+	public void handleString(String content) {
+		Map<String, Integer> map = new HashMap<>();
+		content = content.replaceAll(" +|：|\\\"|．|，|。|, |“|”|\\r|\\n|\\\\s|！|？|" , "");
+		String[] contents = content.split(" ");
+		for(int i = 0; i<contents.length; i++) {
+			if(map.containsKey(contents[i])) {
+				int newVal = map.get(contents[i]) + 1;
+				map.put(contents[i], newVal);
+			}else {
+				map.put(contents[i], 1);
+			}
+		}
+	}
+}

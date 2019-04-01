@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author shan
+ *
+ */
+module Lab2 {
+}

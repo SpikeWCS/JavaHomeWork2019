@@ -1,0 +1,52 @@
+package com.shan.homework2;
+
+import java.lang.reflect.Field;
+
+public class Teacher extends Person {
+	private static int counter = 100;
+	private static void testStatic() {
+		System.out.println("static test()");
+	}
+	
+	private double salary;
+	
+	public Teacher(){
+		
+	}
+	
+	private Teacher(String name, int age, double salary){
+		super();
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+	}
+	
+	 public void eat(String something) {  
+	    System.out.println("老师在吃" + something);  
+	 }  
+	      
+	 public void eat(String something, int time) {
+		 System.out.println("老师在吃" + something + "吃了" + time + "小时");
+	 }  
+	 
+	 @Override  
+	 public String toString() {  
+	     return "Teacher [name=" + name + ", age=" + age + ", salary=" + salary + "]";
+	 }  
+	  
+	 public static void main(String[] args) {
+		try {
+			Class<?> teacherClass = Class.forName("com.shan.homework2.Teacher");
+			Field[] fields = teacherClass.getDeclaredFields();	// 得到Teacher类的所有字段
+			System.out.println("----打印所有字段----");
+			for (Field field : fields) {
+				System.out.println(field);
+			}
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}
